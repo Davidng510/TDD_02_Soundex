@@ -25,8 +25,8 @@ public class Soundex_tests
     [Test]
     public void SoundexSimplePasses()
     {
-        Assert.AreEqual("A", s.Encode("A"));
-        Assert.AreEqual("I", s.Encode("I"));
+        Assert.AreEqual(s.Encode("A"), "A000");
+        Assert.AreEqual(s.Encode("I"), "I000");
     }
 
 }
