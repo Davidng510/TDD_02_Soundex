@@ -7,7 +7,7 @@ public class Soundex
 {
     public string Encode(string word)
     {
-        return word;
+        return word + "000";
     }
 }
 
