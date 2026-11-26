@@ -7,7 +7,13 @@ public class Soundex
 {
     public string Encode(string word)
     {
-        return word + "000";
+        return zeropad(word);
+    }
+
+    private static string zeropad(string term)
+    {
+        var zerosNeeded = 4 - term.Length;
+        return term + new string('0', zerosNeeded);
     }
 }
 
@@ -33,6 +39,12 @@ public class Soundex_tests
     public void Replace_Consonansts_SpecifiedDigits()
     {
         Assert.AreEqual("A100", s.Encode("Ab"));
+    }
+
+    [Test]
+    public void LimitsLenght_FourCharacters()
+    {
+        Assert.AreEqual(4, s.Encode("Ab").Length);
     }
 
 }
