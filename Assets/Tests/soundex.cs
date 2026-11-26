@@ -13,24 +13,37 @@ public class Soundex
         // Nos quedamos con la inicial
         var encoded = word.Substring(0, 1);
 
-        var rest = encodeDigits(word);
+        var end = tail(word);
+        var rest = encodedDigits(end);
         return zeropad(encoded + rest);
     }
 
-    public static string encodeDigits(string word)
+    public static string tail(string word)
+    {
+        return word.Substring(1, word.Length - 1);
+    }
+
+    public static string encodedDigits(string word)
     {
         var table = new Dictionary<char, string>
         {
             {'b', "1"},
             {'c', "2"},
             {'d', "3"},
+            {'l', "4"},
         };
 
-        if (word.Length > 1)
+        if (word.Length == 0) return "";
+
+        string encoding = "";
+
+        foreach (var letter in word)
         {
-            return table[word[1]];
+            if (encoding.Length == 4 -1) break;
+
+            encoding += table[letter];
         }
-        return "";
+        return encoding;
     }
 
     private static string zeropad(string term)
