@@ -70,4 +70,10 @@ public class Soundex_tests
         Assert.AreEqual(4, s.Encode("Ab").Length);
     }
 
+    [Test]
+    public void ReplacesMultipleConsonants_SpecifiedDigits()
+    {
+        Assert.AreEqual("A234", s.Encode("Acdl"));
+    }
+
 }
