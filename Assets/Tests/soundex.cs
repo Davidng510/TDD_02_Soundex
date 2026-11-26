@@ -29,4 +29,10 @@ public class Soundex_tests
         Assert.AreEqual(s.Encode("I"), "I000");
     }
 
+    [Test]
+    public void Replace_Consonansts_SpecifiedDigits()
+    {
+        Assert.AreEqual("A100", s.Encode("Ab"));
+    }
+
 }
