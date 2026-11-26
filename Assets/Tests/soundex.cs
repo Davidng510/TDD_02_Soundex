@@ -89,4 +89,9 @@ public class Soundex_tests
         Assert.AreEqual("A234", s.Encode("Acdl"));
     }
 
+    [Test]
+    public void combinesDuplicateEncodings()
+    {
+        Assert.AreEqual("A123", s.Encode("Abfcgdt"));
+    }
 }
