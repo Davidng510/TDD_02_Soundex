@@ -1,0 +1,8 @@
+# Download external dependencies
+dotnet restore
+
+# Compile
+dotnet build
+
+# Perform the tests
+dotnet test
